@@ -8,7 +8,12 @@ FuelFindr is a location-based web application that helps users discover nearby f
 
 ## Preview
 
-> Add screenshots of the landing page, station search results, map view, and mobile interface here.
+<img width="1495" height="752" alt="image" src="https://github.com/user-attachments/assets/b800eee7-ca1e-44e1-814b-95789c7eb9d0" />
+<img width="1489" height="858" alt="image" src="https://github.com/user-attachments/assets/1b542aa1-3937-4277-8124-7070c531652f" />
+<img width="1496" height="858" alt="image" src="https://github.com/user-attachments/assets/d77bafa9-3e49-4a34-82c0-ae1916aaf6be" />
+<img width="1489" height="703" alt="image" src="https://github.com/user-attachments/assets/28e0f999-6a51-4749-8b66-becd88b0f529" />
+<img width="1492" height="654" alt="image" src="https://github.com/user-attachments/assets/9b2d8efb-7e8b-4a17-88e3-3f113fd53b53" />
+
 
 ---
 
