@@ -1,182 +1,133 @@
 # FuelFindr
 
-Live app: [fuelfindr.app](https://fuelfindr.app/)
+**Live Application:** https://fuelfindr.app
 
-This repository is private to protect API keys and credentials used in the project. Reach out if you'd like a code walkthrough or live demo.
-
-A location-based web application that helps users discover nearby fuel stations in real time, compare pricing and availability, and predict when they'll next need to refuel based on their driving patterns.
+FuelFindr is a location-based web application that helps users discover nearby fuel stations through geolocation and mapping services. The application is designed to simplify station discovery with a fast, responsive interface while exploring future enhancements such as predictive refueling recommendations.
 
 ---
 
 ## Preview
 
-<!-- Add screenshots here, e.g.: -->
-<!-- ![FuelFindr home screen](./screenshots/home.png) -->
-
-*(Screenshots coming soon — try the [live app](https://fuelfindr.app/) in the meantime.)*
+> Add screenshots of the landing page, station search results, map view, and mobile interface here.
 
 ---
 
-## The Problem
+## Overview
 
-Drivers often default to the first or nearest gas station out of habit, missing better prices or more convenient options just minutes away. FuelFindr surfaces real-time station data and turns "where should I fill up" into a data-informed decision instead of a guess.
+FuelFindr was built to improve the experience of finding nearby fuel stations without requiring users to switch between multiple applications. By combining location services with modern web technologies, the application provides a simple and intuitive way to discover relevant stations based on the user's location.
 
-## Approach
+---
 
-- Pull live station data (location, ratings, availability) via the Google Places API rather than maintaining a static, quickly-outdated database.
-- Layer a lightweight predictive model on top of driving pattern and fuel usage data to estimate a user's next likely refuel point, rather than only reacting to a manual search.
-- Build the front end with React, Vite, shadcn/ui, and Tailwind CSS for a fast, component-driven UI, backed by Supabase for auth, data storage, and real-time sync.
-- Deploy behind Cloudflare for DNS and edge performance.
+## Why I Built This
+
+Many navigation applications show nearby fuel stations, but they are often designed as secondary features. I wanted to build a focused application that provides a clean user experience while serving as a platform for future features such as route-aware recommendations, predictive refueling, and fuel analytics.
+
+---
+
+## Key Features
+
+- Discover nearby fuel stations using browser geolocation
+- Display station details and location information
+- Responsive interface for desktop and mobile devices
+- Integration with Google Places API
+- Cloud-hosted deployment
+- Designed for future predictive refueling functionality
+
+---
+
+## Technology Stack
+
+**Frontend**
+
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- shadcn/ui
+
+**Backend & Data**
+
+- Supabase
+
+**APIs**
+
+- Google Places API
+- Browser Geolocation API
+
+**Infrastructure**
+
+- Cloudflare
+
+---
 
 ## Architecture
 
-```
-User (browser)
-      |
-      v
-React + Vite front end (shadcn/ui, Tailwind)
-      |
-      |--> Google Places API  -> live station data (location, ratings, availability)
-      |
-      \--> Supabase            -> auth, user data, usage history
-                    |
-                    v
-          Predictive refuel logic -> estimated next fill-up point
-```
-
-## Challenges and Tradeoffs
-
-- Balancing live-data freshness against API cost and rate limits — tuned how often station data is re-fetched vs. cached client-side to keep the app responsive without over-calling the Google Places API.
-- Designing the predictive refuel model with limited historical data per user — relied on driving-pattern heuristics early on rather than a data-hungry ML model, with room to make it more sophisticated as usage data accumulates.
-
-## Results
-
-<!-- Add real metrics here if you have them, e.g.: -->
-<!-- - X active users since launch -->
-<!-- - Average station lookup response time: Xms -->
-<!-- - X% of users returned within a week -->
-
-## Tech Stack
-
-**Frontend:** React, TypeScript, Vite, shadcn/ui, Tailwind CSS
-**Backend/Data:** Supabase (Auth, Postgres, real-time)
-**APIs:** Google Places API
-**Infrastructure:** Cloudflare (DNS)
-
----
-
-## About This Repo
-
-The source code is kept private since it contains live API keys and database credentials. If you'd like to see the code directly, walk through the architecture, or get a live demo, reach out — happy to share more.
-
-## Author
-
-**Saad Bebal**
-[Portfolio](https://www.saadbebal.com) · [LinkedIn](https://linkedin.com/in/saad-bebal-a5a582268)   │
-   ▼
-Browser Geolocation
+```text
+User
    │
    ▼
-Google Places API
+React + Vite Frontend
    │
-   ▼
-Process Station Data
+   ├── Google Places API
    │
-   ▼
-Display Nearby Fuel Stations
+   └── Supabase
+          │
+          ▼
+Location Processing & Station Data
+          │
+          ▼
+Interactive Fuel Station Results
 ```
 
 ---
 
-## Screenshots
+## My Role
 
-### Home Page
+This is an independently developed project where I was responsible for:
 
-![Home Page](screenshots/home-page.png)
-
----
-
-### Nearby Fuel Stations
-
-![Nearby Stations](screenshots/search-results.png)
-
----
-
-### Station Details
-
-![Station Details](screenshots/station-details.png)
-
----
-
-### Map View
-
-![Map View](screenshots/map-view.png)
-
----
-
-### Mobile Experience
-
-![Mobile View](screenshots/mobile-view.png)
-
----
-
-## My Contributions
-
-- Designed and developed the complete application
-- Built the frontend interface and responsive layouts
-- Integrated Google Places API for nearby station discovery
-- Implemented browser geolocation functionality
-- Configured Supabase backend services
-- Managed deployment and production configuration
-- Improved overall user experience and application performance
+- Designing the application architecture
+- Developing the frontend
+- Integrating third-party APIs
+- Configuring backend services
+- Deploying the application
+- Improving the overall user experience
 
 ---
 
 ## Challenges
 
-During development, several technical challenges were addressed, including:
+Some of the engineering challenges involved:
 
-- Managing browser location permissions
-- Handling external API responses efficiently
-- Optimizing performance across devices
-- Creating a responsive user interface
-- Designing a scalable application architecture
+- Handling browser location permissions
+- Managing third-party API usage efficiently
+- Building a responsive interface across devices
+- Designing the application for future scalability
 
 ---
 
 ## Future Enhancements
 
-Future improvements planned for FuelFindr include:
-
-- Smarter fuel price comparison
-- Route-based fuel recommendations
-- Personalized user accounts
-- Favorite stations
-- Historical fuel usage analytics
+- Route-aware station recommendations
+- Fuel price comparison
+- Predictive refueling suggestions
+- User accounts and saved stations
+- Driving analytics
 - EV charging station support
 
 ---
 
 ## Source Code
 
-The production implementation is maintained in a private repository.
+The production implementation is maintained in a private repository because it contains proprietary implementation details, backend configuration, and integrations with third-party services.
 
-The application contains proprietary implementation details, backend services, deployment configuration, and integrations with third-party platforms that are not included in this public repository.
-
-This repository is intended to showcase the project's functionality, architecture, technology stack, and overall design. Additional implementation details can be discussed during interviews.
+This repository is intended to showcase the project's architecture, functionality, and design. Additional implementation details can be discussed during interviews.
 
 ---
 
-## Contact
+## Author
 
-**Portfolio**
+**Saad Bebal**
 
-https://saadbebal.com
+Portfolio: https://www.saadbebal.com
 
-**LinkedIn**
-
-https://linkedin.com/in/saad-bebal-a5a582268
-
-**Email**
-
-saadbebal.work@gmail.com
+LinkedIn: https://linkedin.com/in/saad-bebal-a5a582268
