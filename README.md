@@ -1,67 +1,78 @@
 # FuelFindr
 
-FuelFindr is a location-based web application that helps users discover nearby fuel stations and make informed refueling decisions through an intuitive and responsive interface.
+Live app: [fuelfindr.app](https://fuelfindr.app/)
 
-**Live Application:** https://fuelfindr.app
+This repository is private to protect API keys and credentials used in the project. Reach out if you'd like a code walkthrough or live demo.
 
----
-
-## Overview
-
-FuelFindr was developed to simplify the process of locating nearby fuel stations by combining geolocation services, mapping APIs, and a modern web interface.
-
-The application provides users with nearby station information, helping them compare available options and improve their refueling experience across desktop and mobile devices.
+A location-based web application that helps users discover nearby fuel stations in real time, compare pricing and availability, and predict when they'll next need to refuel based on their driving patterns.
 
 ---
 
-## Key Features
+## Preview
 
-- Discover nearby fuel stations using the user's current location
-- Display station details, ratings, and location information
-- Responsive interface optimized for desktop and mobile devices
-- Integration with Google Places API
-- Cloud-hosted web application
-- Designed for future expansion with predictive refueling recommendations
+<!-- Add screenshots here, e.g.: -->
+<!-- ![FuelFindr home screen](./screenshots/home.png) -->
+
+*(Screenshots coming soon — try the [live app](https://fuelfindr.app/) in the meantime.)*
 
 ---
 
-## Technology Stack
+## The Problem
 
-### Frontend
+Drivers often default to the first or nearest gas station out of habit, missing better prices or more convenient options just minutes away. FuelFindr surfaces real-time station data and turns "where should I fill up" into a data-informed decision instead of a guess.
 
-- React
-- TypeScript
-- Vite
-- Tailwind CSS
+## Approach
 
-### Backend
+- Pull live station data (location, ratings, availability) via the Google Places API rather than maintaining a static, quickly-outdated database.
+- Layer a lightweight predictive model on top of driving pattern and fuel usage data to estimate a user's next likely refuel point, rather than only reacting to a manual search.
+- Build the front end with React, Vite, shadcn/ui, and Tailwind CSS for a fast, component-driven UI, backed by Supabase for auth, data storage, and real-time sync.
+- Deploy behind Cloudflare for DNS and edge performance.
 
-- Supabase
-
-### APIs & Services
-
-- Google Places API
-- Browser Geolocation API
-
-### Cloud & Deployment
-
-- Cloudflare
-
-### Development Tools
-
-- Git
-- GitHub
-
----
-
-## Application Workflow
+## Architecture
 
 ```
-User
-   │
-   ▼
-FuelFindr Web Application
-   │
+User (browser)
+      |
+      v
+React + Vite front end (shadcn/ui, Tailwind)
+      |
+      |--> Google Places API  -> live station data (location, ratings, availability)
+      |
+      \--> Supabase            -> auth, user data, usage history
+                    |
+                    v
+          Predictive refuel logic -> estimated next fill-up point
+```
+
+## Challenges and Tradeoffs
+
+- Balancing live-data freshness against API cost and rate limits — tuned how often station data is re-fetched vs. cached client-side to keep the app responsive without over-calling the Google Places API.
+- Designing the predictive refuel model with limited historical data per user — relied on driving-pattern heuristics early on rather than a data-hungry ML model, with room to make it more sophisticated as usage data accumulates.
+
+## Results
+
+<!-- Add real metrics here if you have them, e.g.: -->
+<!-- - X active users since launch -->
+<!-- - Average station lookup response time: Xms -->
+<!-- - X% of users returned within a week -->
+
+## Tech Stack
+
+**Frontend:** React, TypeScript, Vite, shadcn/ui, Tailwind CSS
+**Backend/Data:** Supabase (Auth, Postgres, real-time)
+**APIs:** Google Places API
+**Infrastructure:** Cloudflare (DNS)
+
+---
+
+## About This Repo
+
+The source code is kept private since it contains live API keys and database credentials. If you'd like to see the code directly, walk through the architecture, or get a live demo, reach out — happy to share more.
+
+## Author
+
+**Saad Bebal**
+[Portfolio](https://www.saadbebal.com) · [LinkedIn](https://linkedin.com/in/saad-bebal-a5a582268)   │
    ▼
 Browser Geolocation
    │
