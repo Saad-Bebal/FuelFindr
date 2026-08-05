@@ -1,51 +1,171 @@
-# ⛽ FuelFindr
+# FuelFindr
 
-**Live app:** [fuelfindr.app](https://fuelfindr.app/)
+FuelFindr is a location-based web application that helps users discover nearby fuel stations and make informed refueling decisions through an intuitive and responsive interface.
 
-> 🔒 This repository is private to protect API keys and credentials used in the project. Feel free to reach out for a code walkthrough or live demo.
-
-A location-based web application that helps users discover nearby fuel stations in real time, compare pricing and availability, and predict when they'll next need to refuel based on their driving patterns.
+**Live Application:** https://fuelfindr.app
 
 ---
 
-## 📸 Preview
+## Overview
 
-<!-- Add 2-4 screenshots or a short GIF here, e.g.: -->
-<!-- ![FuelFindr home screen](./screenshots/home.png) -->
-<!-- ![Station detail view](./screenshots/station-detail.png) -->
+FuelFindr was developed to simplify the process of locating nearby fuel stations by combining geolocation services, mapping APIs, and a modern web interface.
 
-*(Screenshots coming soon — try the [live app](https://fuelfindr.app/) in the meantime.)*
+The application provides users with nearby station information, helping them compare available options and improve their refueling experience across desktop and mobile devices.
 
 ---
 
-## 🎯 The Problem
+## Key Features
 
-Drivers often default to the first or nearest gas station out of habit, missing better prices or more convenient options just minutes away. FuelFindr surfaces real-time station data and turns "where should I fill up" into a data-informed decision instead of a guess.
+- Discover nearby fuel stations using the user's current location
+- Display station details, ratings, and location information
+- Responsive interface optimized for desktop and mobile devices
+- Integration with Google Places API
+- Cloud-hosted web application
+- Designed for future expansion with predictive refueling recommendations
 
-## 🧠 Approach
+---
 
-- Pull live station data (location, ratings, availability) via the **Google Places API** rather than maintaining a static, quickly-outdated database.
-- Layer a lightweight predictive model on top of driving pattern and fuel usage data to estimate a user's next likely refuel point, rather than only reacting to a manual search.
-- Build the front end with **React + Vite + shadcn/ui + Tailwind CSS** for a fast, component-driven UI, backed by **Supabase** for auth, data storage, and real-time sync.
-- Deploy behind **Cloudflare** for DNS and edge performance.
+## Technology Stack
 
-## 🏗 Architecture
+### Frontend
+
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+
+### Backend
+
+- Supabase
+
+### APIs & Services
+
+- Google Places API
+- Browser Geolocation API
+
+### Cloud & Deployment
+
+- Cloudflare
+
+### Development Tools
+
+- Git
+- GitHub
+
+---
+
+## Application Workflow
 
 ```
-User (browser)
-      │
-      ▼
-React + Vite front end (shadcn/ui, Tailwind)
-      │
-      ├──► Google Places API  → live station data (location, ratings, availability)
-      │
-      └──► Supabase            → auth, user data, usage history
-                    │
-                    ▼
-          Predictive refuel logic → estimated next fill-up point
+User
+   │
+   ▼
+FuelFindr Web Application
+   │
+   ▼
+Browser Geolocation
+   │
+   ▼
+Google Places API
+   │
+   ▼
+Process Station Data
+   │
+   ▼
+Display Nearby Fuel Stations
 ```
 
-## 🧩 Challenges & Tradeoffs
+---
 
-- **Balancing live-data freshness vs. API cost/rate limits** — tuned how often station data is re-fetched vs. cached client-side to keep the app responsive without hammering the Google Places API.
-- **Designing the predictive refuel model with limited historical data per user** — had to lean on driving-pattern heuristics early on rather than a data-hungry ML model, with room to make it more sophisticated as usage data accumulates.
+## Screenshots
+
+### Home Page
+
+![Home Page](screenshots/home-page.png)
+
+---
+
+### Nearby Fuel Stations
+
+![Nearby Stations](screenshots/search-results.png)
+
+---
+
+### Station Details
+
+![Station Details](screenshots/station-details.png)
+
+---
+
+### Map View
+
+![Map View](screenshots/map-view.png)
+
+---
+
+### Mobile Experience
+
+![Mobile View](screenshots/mobile-view.png)
+
+---
+
+## My Contributions
+
+- Designed and developed the complete application
+- Built the frontend interface and responsive layouts
+- Integrated Google Places API for nearby station discovery
+- Implemented browser geolocation functionality
+- Configured Supabase backend services
+- Managed deployment and production configuration
+- Improved overall user experience and application performance
+
+---
+
+## Challenges
+
+During development, several technical challenges were addressed, including:
+
+- Managing browser location permissions
+- Handling external API responses efficiently
+- Optimizing performance across devices
+- Creating a responsive user interface
+- Designing a scalable application architecture
+
+---
+
+## Future Enhancements
+
+Future improvements planned for FuelFindr include:
+
+- Smarter fuel price comparison
+- Route-based fuel recommendations
+- Personalized user accounts
+- Favorite stations
+- Historical fuel usage analytics
+- EV charging station support
+
+---
+
+## Source Code
+
+The production implementation is maintained in a private repository.
+
+The application contains proprietary implementation details, backend services, deployment configuration, and integrations with third-party platforms that are not included in this public repository.
+
+This repository is intended to showcase the project's functionality, architecture, technology stack, and overall design. Additional implementation details can be discussed during interviews.
+
+---
+
+## Contact
+
+**Portfolio**
+
+https://saadbebal.com
+
+**LinkedIn**
+
+https://linkedin.com/in/saad-bebal-a5a582268
+
+**Email**
+
+saadbebal.work@gmail.com
